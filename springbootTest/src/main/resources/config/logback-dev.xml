@@ -21,7 +21,7 @@
     
     <!-- 定义常量 -->
     <property name="env" value="dev" />
-    <property name="project" value="springBootDemo" />
+    <property name="project" value="springBootTset" />
     <property name="root" value="/log" />
     <property name="fileSize" value="50MB" />
     <property name="maxHistory" value="100" />

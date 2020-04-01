@@ -4,7 +4,6 @@ import org.apache.catalina.connector.Connector;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +15,10 @@ public class WebServerconfig {
 	public Connector connector() {
 		Connector connector = new Connector();
 		connector.setScheme("http");
-		connector.setPort(8081);
-		return connector;
+		connector.setPort(8080);
+		return connector;	
 	}
-	
-	
+	@Bean	
 	public ServletWebServerFactory servletWebServerFactory() {
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
 		tomcat.addAdditionalTomcatConnectors(connector());
