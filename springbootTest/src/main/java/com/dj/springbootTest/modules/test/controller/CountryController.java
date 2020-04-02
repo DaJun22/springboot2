@@ -16,5 +16,6 @@ public class CountryController {
 	public Country insertCountry(@RequestBody Country country) {
 		cs.insertCountry(country);
 		return country;
+		
 	}
 }
