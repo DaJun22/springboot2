@@ -21,26 +21,26 @@ public class UriInterceptor implements HandlerInterceptor{
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 
-//	@Override
-//	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-//			ModelAndView modelAndView) throws Exception {
-//		LOGGER.debug("拦截器中处理");
-//		
-//		if (modelAndView == null || modelAndView.getViewName().startsWith("redirect:")) {
-//			return;
-//		}
-//		String uri = request.getServletPath();
-//		if (StringUtils.isNotBlank(uri)) {
-//			if (uri.startsWith("/")) {
-//				uri = uri.substring(1);
-//			}
-//		}
-//		String template = (String) modelAndView.getModelMap().get("template");
-//		if (StringUtils.isBlank(template)) {
-//			modelAndView.getModelMap().addAttribute("template", uri.toLowerCase());
-//		}
-//		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
-//	}
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		LOGGER.debug("拦截器中处理");
+		
+		if (modelAndView == null || modelAndView.getViewName().startsWith("redirect:")) {
+			return;
+		}
+		String uri = request.getServletPath();
+		if (StringUtils.isNotBlank(uri)) {
+			if (uri.startsWith("/")) {
+				uri = uri.substring(1);
+			}
+		}
+		String template = (String) modelAndView.getModelMap().get("template");
+		if (StringUtils.isBlank(template)) {
+			modelAndView.getModelMap().addAttribute("template", uri.toLowerCase());
+		}
+		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)

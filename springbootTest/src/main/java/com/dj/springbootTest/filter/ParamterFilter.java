@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +28,7 @@ public class ParamterFilter implements Filter {
 			@Override
 			public String getParameter(String name) {
 				String value = httprequest.getParameter(name);
-				if(StringUtils.isNotBlank(value)) {
+				if(value != null || value != "") {
 					return value.replace("fuck", "***");
 				}
 				return super.getParameter(name);

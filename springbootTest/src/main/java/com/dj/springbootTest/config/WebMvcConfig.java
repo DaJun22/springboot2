@@ -14,18 +14,16 @@ import com.dj.springbootTest.interceptor.UriInterceptor;
 
 
 @Configuration
-@AutoConfigureAfter(value = WebMvcAutoConfiguration.class)
+@AutoConfigureAfter({WebMvcAutoConfiguration.class})
 public class WebMvcConfig implements WebMvcConfigurer{
 	
 	@Autowired
 	private UriInterceptor uriInterceptor;
 	
-	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(uriInterceptor).addPathPatterns("/**");
 	}
-
 
 	@Bean
 	public FilterRegistrationBean<ParamterFilter> filterRegister() {

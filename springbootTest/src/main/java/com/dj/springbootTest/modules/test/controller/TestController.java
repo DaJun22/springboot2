@@ -18,9 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/test")
-public class ControllerTest {
+public class TestController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(ControllerTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
 	@ResponseBody
 	@RequestMapping("/test")
